@@ -1,0 +1,12 @@
+import csv
+import json
+import sys
+
+csvfile = open(sys.argv[1], 'rU')
+jsonfile = open(sys.argv[1].replace('.csv','.json'), 'w')
+
+reader = csv.DictReader(csvfile)
+
+for row in reader:
+    print row
+    json.dump(row, jsonfile)

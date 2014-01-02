@@ -1,0 +1,54 @@
+body {
+    font-family: "Montserrat";
+}
+
+h1 {
+    position:relative;
+    font-family: "Fjalla One";
+    font-size: 10em;
+    padding: 0.4em 0;
+}
+button.btn {
+    font-family: "Pacifico";
+}
+h5 {
+    font-family: "Fjalla One";
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+}
+#mapwrapper {
+    
+}
+#leafletmap {
+    height: 600px;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h3 {
+    
+    font-family: "Pacifico";
+    font-size: 3em;
+}
+.overlay {
+    /*with thanks to http://maps.mixedbredie.net/leaflet/index2.html*/
+    position:absolute; 
+    padding: 40px;
+    color: #223;
+    background-color:rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    //border-radius: 5px;
+}
+.title {
+    top:10%;
+    left:10%;
+}
+.church.item {
+    padding: 20px 0;
+    //border-top: 1px solid silver;
+}
+i.loc {
+    color: silver;
+    cursor: pointer;
+}

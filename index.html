@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Montserrat:400,700|Lobster+Two:400,400italic|Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <link href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+    <script src="leaflet-icons.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    
+    <script src="app.js"></script>
+    <script src="scrolling.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+    <div class="leafletmap" id="leafletmap">
+        <!--
+        <div class="hero-unit">
+            <h1>Welcome to GR-rusalem.</h1>
+            <p>Your guide to Grand Rapids area church communities.</p>
+            <a class="btn btn-primary btn-large">
+              Find a church
+            </a>
+        </div> -->
+    </div>
+
+    <div class="title overlay">
+        <h3>welcome to beautiful</h3>
+        <h1>GR-USALEM</h1>
+        <p>Your guide to the Christian congregations of the the greater Grand Rapids area</p>
+        <button class="btn btn-large btn-primary">
+            <i class="fa fa-hand-o-right"></i> Find a church
+        </button>
+    </div>
+    <div class="container">
+        <!--
+        <div class="church item" ng-repeat='church in churches | orderBy:name'>
+            <h2 class="church name">{{church.name}}</h2>
+            <h5 class="church denom"> {{church.denomination}} | {{church.worship_style}} </h5>
+            <p class="church statement">{{church.mission_statement}}</p>
+        </div> -->
+        
+        <div ng-repeat='church in churches'>
+            <div ng-if='$index % 2 == 0'>
+                <div class="row">
+                    <div class="span6 church item">
+                        <h2  >{{churches[$index + 0]['name']}} <i class="loc fa fa-map-marker"></i></h2>
+                        <h5>{{churches[$index + 0]['worship_description']}}</h5>
+                        <p>{{churches[$index + 0]['mission_statement']}}</p>
+                        <span addtomap lat="{{churches[$index + 0]['lat']}}" lng="{{churches[$index + 0]['lng']}}" churchname="{{churches[$index + 0]['name']}}"></span>
+                    </div>
+                    <div class="span6 church item">
+                        <h2>{{churches[$index + 1]['name']}} <i leafletZoom lat="{{churches[$index + 0]['lat']}}" lng="{{churches[$index + 0]['lng']}}" class="loc fa fa-map-marker"></i></h2>
+                        <h5>{{churches[$index + 1]['worship_description']}}</h5>
+                        <p>{{churches[$index + 1]['mission_statement']}}</p>
+                        <span addtomap lat="{{churches[$index + 1]['lat']}}" lng="{{churches[$index + 0]['lng']}}" churchname="{{churches[$index + 0]['name']}}"></span>
+                    </div>
+                                        
+                </div>
+            </div>
+        </div>           
+    </div>
+</body>
+</html>
+<h3>{{church.gsx$churchname.$t}}</h3>
+            <p>{{church['gsx$pleaseprovideamissionstatementthatdescribesyourpurposeandidentityasachurch.']['$t']}}</p>
