@@ -35,40 +35,69 @@
             </a>
         </div> -->
     </div>
-
-    <div class="title overlay">
-        <h3>welcome to beautiful</h3>
-        <h1>GR-USALEM</h1>
-        <p>Your guide to the Christian congregations of the the greater Grand Rapids area</p>
-        <button class="btn btn-large btn-primary">
-            <i class="fa fa-hand-o-right"></i> Find a church
-        </button>
+    <div class="title flip-container">
+        <div class="flipper">
+            <div class="overlay front">
+                <h1>Find a Church</h1>
+                <h3>get involved. Let us help!</h3>
+                <br>
+                <p>Your guide to the Christian congregations of the the greater Grand Rapids area</p>
+                <!--<button class="btn btn-large btn-primary" ng-click="page = page + 1" ng-init="page = 0">
+                    <i class="fa fa-hand-o-right"></i> Find a church
+                </button>-->
+            </div>
+            <div class="overlay back">
+                <h2>A Calvin Student Senate project.</h2>
+            </div>
+        </div>
     </div>
-    <div class="container">
+
         <!--
         <div class="church item" ng-repeat='church in churches | orderBy:name'>
             <h2 class="church name">{{church.name}}</h2>
             <h5 class="church denom"> {{church.denomination}} | {{church.worship_style}} </h5>
             <p class="church statement">{{church.mission_statement}}</p>
         </div> -->
-        
-        <div ng-repeat='church in churches'>
-            <div ng-if='$index % 2 == 0'>
-                <div class="row">
-                    <div class="span6 church item">
-                        <h2  >{{churches[$index + 0]['name']}} <i class="loc fa fa-map-marker"></i></h2>
-                        <h5>{{churches[$index + 0]['worship_description']}}</h5>
-                        <p>{{churches[$index + 0]['mission_statement']}}</p>
-                        <span addtomap lat="{{churches[$index + 0]['lat']}}" lng="{{churches[$index + 0]['lng']}}" churchname="{{churches[$index + 0]['name']}}"></span>
+    <div id='directory'>
+                    
+                    <!--<input type="text" ng-model="searchText">-->
+        <div class='church item' ng-repeat='church in churches | filter:searchText | orderBy:"name"'>
+
+                    <div addtomap lng="{{church.lng}}" lat="{{church.lat}}" class="container">
+                        <div class="row">
+                            <div class="span6 columnL">
+                                <h2>{{church.name}} </h2>
+                                <h5>{{church.worship_description}}</h5>
+                                <h5><small>{{church.sunday_service_time}}</small></h5>
+                                <i class="loc fa fa-truck fa-2x" ng-if="church.transportation.indexOf('yes') != -1"></i>
+                                <i class="loc fa fa-2x fa-map-marker" ng-click="mymap.invalidateSize(true); mymap.setView([church.lat, church.lng], 14);"></i>
+                            </div>
+                            <div class="span6 columnR">
+                                <p>{{church.mission_statement}} <i class="fa fa-angle-down handy" ng-click="church.showMore = !church.showMore" ng-class="{'fa-rotate-180':church.showMore}"></i> </p>
+                            </div>
+                        </div>
+                        <div ng-show="church.showMore">
+                        <div class="row">
+                            <div class="span6 columnL">
+                                <h5>Opportunities</h5>
+                            </div>
+                            <div class="span6 columnR">
+                                <p>{{church.student_opportunities}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span6 columnL">
+                                <h5>Needs</h5>
+                            </div>
+                            <div class="span6 columnR">
+                                <p>{{church.student_needs}}</p>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                    <div class="span6 church item">
-                        <h2>{{churches[$index + 1]['name']}} <i leafletZoom lat="{{churches[$index + 0]['lat']}}" lng="{{churches[$index + 0]['lng']}}" class="loc fa fa-map-marker"></i></h2>
-                        <h5>{{churches[$index + 1]['worship_description']}}</h5>
-                        <p>{{churches[$index + 1]['mission_statement']}}</p>
-                        <span addtomap lat="{{churches[$index + 1]['lat']}}" lng="{{churches[$index + 0]['lng']}}" churchname="{{churches[$index + 0]['name']}}"></span>
-                    </div>
+                    
                                         
-                </div>
+              
             </div>
         </div>           
     </div>

@@ -5,7 +5,7 @@ body {
 h1 {
     position:relative;
     font-family: "Fjalla One";
-    font-size: 10em;
+    font-size: 9em;
     padding: 0.4em 0;
 }
 button.btn {
@@ -20,12 +20,34 @@ h5 {
     
 }
 #leafletmap {
-    height: 600px;
+    z-index:2;
+    height: 450px;
     width: 100%;
     position: fixed;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.church.item:nth-child(2n) {
+    background-color: aliceblue;
+}
+
+#directory {
+    top: 480px;
+    position:relative;
+    z-index:1;
+}
+.columnL {
+    text-align:right;
+}
+.columnR {
+    margin-top:1px;
+    font-family:Cardo;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+.columnL h2 {
+    margin-top: 0;
+}
 h3 {
     
     font-family: "Pacifico";
@@ -33,6 +55,7 @@ h3 {
 }
 .overlay {
     /*with thanks to http://maps.mixedbredie.net/leaflet/index2.html*/
+    z-index: 3;
     position:absolute; 
     padding: 40px;
     color: #223;
@@ -41,7 +64,7 @@ h3 {
     //border-radius: 5px;
 }
 .title {
-    top:10%;
+    top:50px;
     left:10%;
 }
 .church.item {
@@ -51,4 +74,42 @@ h3 {
 i.loc {
     color: silver;
     cursor: pointer;
+}
+
+.handy {
+    cursor: pointer;
+}
+.flip-container {
+    z-index: 20;
+    position: absolute;
+    -webkit-perspective: 1000;
+}
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform: rotateX(-180deg);
+}
+.flip-container .flipper {
+    -webkit-transform-origin: 100% 200px;
+}
+.flip-container, .front, .back {
+    width: 700px;
+    height: 250px;
+}
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style:preserve-3d;
+    
+    position: relative;
+}
+.front, .back {
+    -webkit-backface-visibility: hidden;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.front {
+    z-index: 10;
+}
+.back {
+    -webkit-transform: rotateX(180deg);
 }

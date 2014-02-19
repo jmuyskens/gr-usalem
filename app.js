@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp', [])
+angular.module('myApp', ['ui.bootstrap'])
 
 .factory('ChurchData', function ($http) {
     return {
@@ -56,6 +56,6 @@ angular.module('myApp', [])
         } else {
             myIcon = lightestIcon;
         }
-        L.marker([+attrs.lat, +attrs.lng], {icon:myIcon}).addTo(scope.mymap).bindPopup(attrs.churchname);
+        L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup(attrs.churchname);
     }
 });

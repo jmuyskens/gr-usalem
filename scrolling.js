@@ -1,5 +1,5 @@
 $(document).ready( function () {
-var startingHeight = 600;
+var startingHeight = 450;
 var endingHeight = 150;
 var startScrollTransition = 0;
 var endScrollTransition = 450;
@@ -12,6 +12,7 @@ $(window).scroll(function() {
         var height = (endingHeight - startingHeight) * (($(this).scrollTop() - endScrollTransition) / (endScrollTransition - startScrollTransition)) + endingHeight;
         //console.log(height);
         map.css("height", height);
+        
     }
 });
     
