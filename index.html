@@ -48,6 +48,7 @@
             </div>
             <div class="overlay back">
                 <h2>A Calvin Student Senate project.</h2>
+                <input type="text" ng-model="searchText">
             </div>
         </div>
     </div>
@@ -60,10 +61,10 @@
         </div> -->
     <div id='directory'>
                     
-                    <!--<input type="text" ng-model="searchText">-->
+
         <div class='church item' ng-repeat='church in churches | filter:searchText | orderBy:"name"'>
 
-                    <div addtomap lng="{{church.lng}}" lat="{{church.lat}}" class="container">
+                    <div addtomap lng="{{church.lng}}" lat="{{church.lat}}" churchName="{{church.name}}" churchAddr="{{church.address}}" class="container">
                         <div class="row">
                             <div class="span6 columnL">
                                 <h2>{{church.name}} </h2>

@@ -56,6 +56,6 @@ angular.module('myApp', ['ui.bootstrap'])
         } else {
             myIcon = lightestIcon;
         }
-        L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup(attrs.churchname);
+        L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup('<h4>' + attrs.churchname + '</h4><br>' + attrs.churchaddr);
     }
 });

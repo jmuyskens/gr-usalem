@@ -16,6 +16,9 @@ h5 {
     text-transform:uppercase;
     letter-spacing:0.1em;
 }
+h4 {
+    margin-bottom: 0;
+}
 #mapwrapper {
     
 }
@@ -88,7 +91,7 @@ i.loc {
     -webkit-transform: rotateX(-180deg);
 }
 .flip-container .flipper {
-    -webkit-transform-origin: 100% 200px;
+    -webkit-transform-origin: 100% 165px;
 }
 .flip-container, .front, .back {
     width: 700px;
@@ -112,4 +115,13 @@ i.loc {
 }
 .back {
     -webkit-transform: rotateX(180deg);
+}
+
+.leaflet-popup-content-wrapper {
+    opacity: 0.8;
+    text-align: center;
+}
+
+.leaflet-popup-tip-container {
+    opacity: 0.8;
 }
