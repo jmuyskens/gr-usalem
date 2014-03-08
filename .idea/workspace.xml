@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73c6d9ee-2f03-4c19-82e9-b385363a554d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fabfile.py" afterPath="$PROJECT_DIR$/fabfile.py" />
     </list>
     <ignored path="gr-rusalem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +30,7 @@
           <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="49" column="177" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.8267717" vertical-offset="0" max-vertical-offset="889">
+                <state line="7" column="24" selection-start="176" selection-end="176" vertical-scroll-proportion="0.111228816" vertical-offset="0" max-vertical-offset="944">
                   <folding />
                 </state>
               </provider>
@@ -78,10 +76,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="27" column="21" selection-start="1901" selection-end="1901" vertical-scroll-proportion="0.4402174" vertical-offset="0" max-vertical-offset="1620">
+                <state line="45" column="68" selection-start="2710" selection-end="2710" vertical-scroll-proportion="-28.125" vertical-offset="0" max-vertical-offset="1620">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fabfile.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/fabfile.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="32" selection-start="95" selection-end="95" vertical-scroll-proportion="0.06269593" vertical-offset="0" max-vertical-offset="957">
                   <folding />
                 </state>
               </provider>
@@ -107,6 +114,7 @@
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/fabfile.py" />
       </list>
     </option>
   </component>
@@ -397,16 +405,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="177" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.8267717" vertical-offset="0" max-vertical-offset="889">
+        <state line="45" column="68" selection-start="2710" selection-end="2710" vertical-scroll-proportion="-28.125" vertical-offset="0" max-vertical-offset="1620">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="21" selection-start="1901" selection-end="1901" vertical-scroll-proportion="0.4402174" vertical-offset="0" max-vertical-offset="1620">
+        <state line="7" column="24" selection-start="176" selection-end="176" vertical-scroll-proportion="0.111228816" vertical-offset="0" max-vertical-offset="944">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fabfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="32" selection-start="95" selection-end="95" vertical-scroll-proportion="0.06269593" vertical-offset="0" max-vertical-offset="957">
           <folding />
         </state>
       </provider>
