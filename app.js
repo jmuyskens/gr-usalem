@@ -16,15 +16,17 @@ angular.module('myApp', ['ui.bootstrap'])
         $scope.churches = data.data;
         console.log($scope.churches);
     });
-    $scope.myLoc = L.latLng(42.9269, -85.5891);
+    $scope.myLoc = L.latLng(42.9269, -85.59);
+
     $scope.mymap = L.map('leafletmap', {
-        center: [[42.9269,-85.2491]],
+        center: [[42.9269,-85.5]],
         scrollWheelZoom: false,
         inertia: true,
+        zoomControl: false,
         inertiaDeclaration: 2000
     });
-           
-    $scope.mymap.setView([42.9269,-85.731], 12);
+
+    $scope.mymap.setView([42.9269,-85.6], 12);
     
     var layer = new L.StamenTileLayer("terrain").addTo($scope.mymap);
     /*

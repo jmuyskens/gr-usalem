@@ -1,4 +1,4 @@
-$(document).ready( function () {
+/*$(document).ready( function () {
 var startingHeight = 450;
 var endingHeight = 150;
 var startScrollTransition = 0;
@@ -16,4 +16,4 @@ $(window).scroll(function() {
     }
 });
     
-});
+});*/
