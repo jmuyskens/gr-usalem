@@ -60,10 +60,7 @@
             <p class="church statement">{{church.mission_statement}}</p>
         </div> -->
     <div id='directory'>
-                    
-
         <div class='church item' ng-repeat='church in churches | filter:searchText | orderBy:"name"'>
-
                     <div addtomap lng="{{church.lng}}" lat="{{church.lat}}" churchName="{{church.name}}" churchAddr="{{church.address}}" class="container">
                         <div class="row">
                             <div class="span6 columnL">
@@ -71,7 +68,7 @@
                                 <h5>{{church.worship_description}}</h5>
                                 <h5><small>{{church.sunday_service_time}}</small></h5>
                                 <i class="loc fa fa-truck fa-2x" ng-if="church.transportation.indexOf('yes') != -1"></i>
-                                <i class="loc fa fa-2x fa-map-marker" ng-click="mymap.invalidateSize(true); mymap.setView([church.lat, church.lng], 14);"></i>
+                                <i class="loc fa fa-2x fa-map-marker" ng-click="mymap.invalidateSize(true); mymap.setView([church.lat, church.lng], 14); icon.openPopup();"></i>
                             </div>
                             <div class="span6 columnR">
                                 <p>{{church.mission_statement}} <i class="fa fa-angle-down handy" ng-click="church.showMore = !church.showMore" ng-class="{'fa-rotate-180':church.showMore}"></i> </p>
@@ -96,9 +93,7 @@
                         </div>
                         </div>
                     </div>
-                    
-                                        
-              
+
             </div>
         </div>           
     </div>

@@ -1,0 +1,11 @@
+from fabric.api import *
+
+def vulcan():
+    env.user = 'churches'
+    env.hosts = ['abs']
+
+def deploy():
+    code_dir = '/home/churches/www/'
+    with cd(code_dir):
+        run("git pull")
+        

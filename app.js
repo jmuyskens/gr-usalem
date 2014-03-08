@@ -47,15 +47,6 @@ angular.module('myApp', ['ui.bootstrap'])
 
 .directive('addtomap', function() {
     return function (scope, element, attrs) {
-        var distanceToMe = scope.myLoc.distanceTo([+attrs.lat, +attrs.lng]);
-        var myIcon = goldIcon;
-        if (distanceToMe < 3000) {
-            myIcon = goldIcon;
-        } else if (distanceToMe < 6000) {
-            myIcon = lighterIcon;
-        } else {
-            myIcon = lightestIcon;
-        }
-        L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup('<h4>' + attrs.churchname + '</h4><br>' + attrs.churchaddr);
+        scope.icon = L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup('<h4>' + attrs.churchname + ' <a href="#' + scope.$id + '"><i class="fa fa-info-circle"></i></a></h4><br>' + attrs.churchaddr);
     }
 });
