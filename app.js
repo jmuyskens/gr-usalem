@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp', ['ui.bootstrap'])
+angular.module('myApp', ['ui.bootstrap', 'angularSlideables'])
 
 .factory('ChurchData', function ($http) {
     return {
@@ -44,11 +44,11 @@ angular.module('myApp', ['ui.bootstrap'])
     function onLocationFound(e) {    
         L.marker(e.latlng).addTo($scope.mymap);
     }*/
-    L.marker([42.9269,-85.5891], {icon:maroonIcon}).addTo($scope.mymap).bindPopup("Calvin College");
+    //L.marker([42.9269,-85.5891], {icon:maroonIcon}).addTo($scope.mymap).bindPopup("Calvin College");
 })
 
 .directive('addtomap', function() {
     return function (scope, element, attrs) {
-        scope.icon = L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup('<h4>' + attrs.churchname + ' <a href="#' + scope.$id + '"><i class="fa fa-info-circle"></i></a></h4><br>' + attrs.churchaddr);
+        scope.icon = L.marker([+attrs.lat, +attrs.lng]).addTo(scope.mymap).bindPopup('<h4>' + attrs.churchname + ' <a href="#' + attrs.id + '"><i class="fa fa-info-circle"></i></a></h4><br>' + attrs.churchaddr);
     }
 });

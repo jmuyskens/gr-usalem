@@ -1,0 +1,20 @@
+{
+  "name": "gr-rusalem",
+  "version": "0.0.0",
+  "description": "church directory for gr",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jmuyskens/gr-rusalem.git"
+  },
+  "author": "jmuyskens",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "acc17b9ba39df298860c1ff91cc147f4a8271124",
+  "devDependencies": {
+    "grunt": "~0.4.4"
+  }
+}

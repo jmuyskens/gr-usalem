@@ -3,16 +3,23 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+   
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Rouge+Script|Montez|Grand+Hotel|Great+Vibes' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Montserrat:400,700|Lobster+Two:400,400italic|Oswald:400,700,300' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <link href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" rel="stylesheet" />
     <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
     <script src="leaflet-icons.js"></script>
+
+    <script src="modules/AngularSlideables/angularSlideables.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
@@ -36,7 +43,7 @@
                     <h1>Find a Church</h1>
                     <h3>get involved. Let us help!</h3>
                     <br>
-                    <p>Your guide to the Christian congregations of the the greater Grand Rapids area</p>
+                    <p>Your guide to the Christian congregations of the greater Grand Rapids area</p>
                     <!--<button class="btn btn-large btn-primary" ng-click="page = page + 1" ng-init="page = 0">
                         <i class="fa fa-hand-o-right"></i> Find a church
                     </button>
@@ -55,42 +62,51 @@
             <h5 class="church denom"> {{church.denomination}} | {{church.worship_style}} </h5>
             <p class="church statement">{{church.mission_statement}}</p>
         </div> -->
-    <div class="col-md-6 directory">
-
-            <div ng-repeat='church in churches | filter:searchText | orderBy:"name"' class='church item' addtomap lng="{{church.lng}}" lat="{{church.lat}}" churchName="{{church.name}}" churchAddr="{{church.address}}">
+    <div class="col-md-6 directory" data-spy="scroll" data-target=".church.item">
+            <div class="church item" id="directoryheader">
+                <h3>
+                    Find a church
+                </h3>
+                <h4>
+                    Your guide to the Christian congregations of the greater Grand Rapids area
+                </h4>
+                <button class="btn btn-primary btn-lg" slide-toggle="#aboutpara">About</button>
+                <div class="content slideable" id="aboutpara" >
+                    <p>
+                        Welcome to Grand Rapids, a place rich in churches and opportunities for service. In the fall of 2014, a team of student senators created this directory to help students partner with churches, and in turn serve the community of Grand Rapids. May God bless your search for a church home!
+                    </p>
+                </div>
+            </div>
+            <div ng-repeat='church in churches | filter:searchText | orderBy:"name"' class='church item' id='church{{$index}}' addtomap lng="{{church.lng}}" lat="{{church.lat}}" churchName="{{church.name}}" churchAddr="{{church.address}}">
 
                 <div class="icons">
-
                     <i class="loc fa fa-2x fa-map-marker" ng-click="mymap.invalidateSize(true); mymap.setView([church.lat, church.lng], 14); icon.openPopup();"></i>
                     <i class="loc fa fa-truck fa-2x" ng-if="church.transportation.indexOf('yes') != -1"></i>
                 </div>
+
                 <div class="content">
                     <h2>{{church.name}} </h2>
                     <h5>{{church.worship_description}}</h5>
                     <h5><small>{{church.sunday_service_time}}</small></h5>
 
-                    <div class="">
-                        <p>{{church.mission_statement}} <i class="fa fa-angle-down handy" ng-click="church.showMore = !church.showMore" ng-class="{'fa-rotate-180':church.showMore}"></i> </p>
+                    <p>{{church.mission_statement}}</p>
+
+                    <div id="moreInfo{{$index}}" class="slideable">
+                        
+                        <h5>Opportunities</h5>
+                        <p>{{church.student_opportunities}}</p>
+                     
+                        <h5>Needs</h5>
+                        <p>{{church.student_needs}}</p>
+                       
                     </div>
 
-                    <div ng-show="church.showMore">
-                        <div class="row">
-                            <div class="">
-                                <h5>Opportunities</h5>
-                            </div>
-                            <div class="">
-                                <p>{{church.student_opportunities}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="">
-                                <h5>Needs</h5>
-                            </div>
-                            <div class="">
-                                <p>{{church.student_needs}}</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <button class="btn btn-xs btn-warning" slide-toggle="#moreInfo{{$index}}" ng-click="church.showMore = !church.showMore">
+                        <i class="fa fa-angle-down handy" ng-class="{'fa-rotate-180':church.showMore}"></i>
+                        <span ng-show="!church.showMore">more</span>
+                        <span ng-show="church.showMore">less</span>
+                    </button>
                 </div>
 
             </div>
@@ -113,6 +129,29 @@
         </a>
     </div> -->
 </div>
+<script>
 
+$(".leaflet-popup-content a").on('click', function(e) {
+        console.log('called!');
+
+   // prevent default anchor click behavior
+   e.preventDefault();
+
+   // store hash
+   var hash = this.hash;
+
+   // animate
+   $('html, body').animate({
+       scrollTop: $(this.hash).offset().top
+     }, 300, function(){
+
+       // when done, add hash to url
+       // (default click behaviour)
+       window.location.hash = hash;
+     });
+
+});
+
+</script>
 </body>
 </html>

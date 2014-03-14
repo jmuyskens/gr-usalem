@@ -5,14 +5,13 @@ body {
 h1 {
     position:relative;
     font-family: "Fjalla One";
-    font-size: 9em;
-    padding: 0.4em 0;
 }
 h2 {
     font-family: "Montserrat";
 }
 button.btn {
-    font-family: "Pacifico";
+
+    font-family: "Montserrat";
 }
 h5 {
     font-family: "Fjalla One";
@@ -20,7 +19,7 @@ h5 {
     letter-spacing:0.1em;
 }
 h4 {
-    margin-bottom: 0;
+
 }
 .container-fluid {
     position: absolute;
@@ -59,9 +58,9 @@ h4 {
     margin-top: 0;
 }
 h3 {
-    
-    font-family: "Pacifico";
-    font-size: 3em;
+
+    font-family: "Grand Hotel";
+    font-size: 6em;
 }
 .overlay {
     /*with thanks to http://maps.mixedbredie.net/leaflet/index2.html*/
@@ -78,11 +77,12 @@ h3 {
     left:10%;
 }
 .church.item {
+    overflow: auto;
     padding: 20px 0;
     //border-top: 1px solid silver;
 }
 i.loc {
-    color: silver;
+    color: steelblue;
     cursor: pointer;
 }
 
@@ -141,7 +141,7 @@ i.loc {
 .content {
     float: left;
     width:  95%;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 .church.item {
 
@@ -162,4 +162,13 @@ input {
     padding: 0.2em;
     margin: 1em;
     opacity: 0.9;
+}
+.btn:focus {
+    outline: 0;
+}
+.moreInfoHidden {
+    display: none;
+}
+#directoryheader {
+    text-align: center;
 }
